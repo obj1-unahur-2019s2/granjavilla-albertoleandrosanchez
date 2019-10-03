@@ -13,6 +13,15 @@ program farmville {
  	game.addVisualCharacter(hector)
  	game.addVisualIn(new Maiz(), game.at(1, 1))
  	
+ 	//TECLADO
+ 	keyboard.a().onPressDo({hector.plantaMaiz()})
+ 	keyboard.s().onPressDo({hector.regarPlanta()})
+ 	keyboard.d().onPressDo({hector.cosecharPlanta()})
+ 	keyboard.f().onPressDo({game.say(hector, "tengo cosechadas"+ hector.cantidadDePlantasCosechadas()+ "plantas")})
+ 	
  	//  COMIENZA
 	game.start()
+	
+		
+
 }
