@@ -1,6 +1,7 @@
 class Maiz {
 	var property position
 	var property esAdulta = false
+	const property puedeMercadear = false
 	
 	method image() {
 		if(esAdulta){
@@ -21,6 +22,8 @@ class Maiz {
 class Trigo {
 	var property position
 	var property esAdulta = false
+	const property puedeMercadear = false
+	
 	method image(){
 		if (esAdulta){
 		return "wheat_1.png"
@@ -38,6 +41,8 @@ class Trigo {
 class Tomaco {
 	var property position
 	var property esAdulta = false
+	const property puedeMercadear = false
+	
 	method image(){
 		if (esAdulta){
 		return "tomaco.png"
