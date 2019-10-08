@@ -10,15 +10,22 @@ program farmville {
 	game.ground("ground.png")
 
 	//  VISUALES
+	
  	game.addVisualCharacter(hector)
- 	game.addVisualIn(new Maiz(), game.at(1, 1))
+ 	game.addVisualIn(new Mercado(), game.at(9, 0))
  	
  	//TECLADO
- 	keyboard.a().onPressDo({hector.plantaMaiz()})
- 	keyboard.s().onPressDo({hector.regarPlanta()})
- 	keyboard.d().onPressDo({hector.cosecharPlanta()})
- 	keyboard.f().onPressDo({game.say(hector, "tengo cosechadas"+ hector.cantidadDePlantasCosechadas()+ "plantas")})
- 	
+ 	keyboard.z().onPressDo({hector.plantarMaiz()})
+ 	keyboard.x().onPressDo({hector.plantarTrigo()})
+ 	keyboard.c().onPressDo({hector.plantarTomaco()})
+ 	keyboard.a().onPressDo({hector.regarPlanta()})
+ 	keyboard.s().onPressDo({hector.cosecharPlanta()})
+ 	keyboard.d().onPressDo({game.say(hector, "tengo cosechadas"+ hector.cantidadDePlantasCosechadas() + "plantas")})
+ 	keyboard.space().onPressDo({game.say(hector, "tengo "+ hector.cantidadDePlantasCosechadas() + " para vender y "+ hector.oro() +" de oro")})
+	
+	//COLISIONES
+	game.whenCollideDo(, hector.vendeTodo())
+	
  	//  COMIENZA
 	game.start()
 	
