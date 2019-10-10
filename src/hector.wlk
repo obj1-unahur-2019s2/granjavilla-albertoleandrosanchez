@@ -6,11 +6,15 @@ import cultivos.*
 class Mercado{
 	const property image= "market.png"
 	const property puedeMercadear = true
+	var property plantasQueCompra = []
+	
+	var property dineroDisponible
 	
 	method mercadea(jugador){
-		jugador.vendeTodo()
-		game.say(self, "tengo "+ hector.cantidadDePlantasCosechadas() + " para vender y "+ hector.oro() +" de oro")
-	}
+		if{
+		
+		game.say(jugador, "tengo "+ hector.cantidadDePlantasCosechadas() + " para vender y "+ jugador.oro() +" de oro")
+	
 }
 
 
@@ -58,6 +62,10 @@ object hector {
 	method cantidadDePlantasCosechadas(){
 		return plantasCosechadas.size()
 	}
+	
+	method vende(){
+		oro += 
+	}
 	method vendeTodo(){
 		oro += plantasCosechadas.sum({planta => planta.precio()})
 		plantasCosechadas.clear()
@@ -73,4 +81,46 @@ object oso{
 	const property image = "oso.jpg"
 	var property plantasCosechadas = []
 	var property oro = 0
+	
+	method moveteALaIzquierda(){
+		if(position.x() >0){
+			position =position.left(1)
+		}
+	}
+	
+	method moveteArriba(){
+			if(position.y() < game.height() -1){
+				position = position.up(1)
+			}
+	}
+	method moveteALaDerecha(){
+		if(position.x()< game.width()-1){
+			position = position.right(1)
+		}
+	}
+	method moveteAbajo(){
+		if(position.y()> 0){
+			position = position.down(1)
+		}
+	}
+		
+	
+	method moveteAlAzar(){
+		//devuelve del 1 al 4
+		var dado= 1.randomUpTo(5).truncate(0)
+		
+		if(dado==1){
+			self.moveteALaIzquierda()	
+		}
+		else if(dado==2){
+			self.moveteArriba()	
+		}
+		else if(dado==3){
+		self.moveteALaDerecha()	
+		}
+		else if(dado==4){
+			self.moveteAbajo()	
+		}
+		
+	}	
 }
